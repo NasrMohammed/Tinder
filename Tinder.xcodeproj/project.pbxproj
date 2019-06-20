@@ -14,6 +14,7 @@
 		CC97E9E822A1D7C200D3B697 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC97E9E722A1D7C200D3B697 /* Assets.xcassets */; };
 		CC97E9EB22A1D7C200D3B697 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC97E9E922A1D7C200D3B697 /* LaunchScreen.storyboard */; };
 		CCB4C23E22BA9ED800CE80E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB4C23D22BA9ED800CE80E7 /* LoginViewController.swift */; };
+		CCB4C24022BC2B6F00CE80E7 /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB4C23F22BC2B6F00CE80E7 /* UpdateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		CC97E9EA22A1D7C200D3B697 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC97E9EC22A1D7C200D3B697 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCB4C23D22BA9ED800CE80E7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CCB4C23F22BC2B6F00CE80E7 /* UpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewController.swift; sourceTree = "<group>"; };
 		D35C4C0131C1216D0D9F8585 /* Pods_Tinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0A23AD65CF0E680F195D49D /* Pods-Tinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tinder.debug.xcconfig"; path = "Target Support Files/Pods-Tinder/Pods-Tinder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,7 +64,6 @@
 		CC97E9D422A1D7C000D3B697 = {
 			isa = PBXGroup;
 			children = (
-				CCB4C23D22BA9ED800CE80E7 /* LoginViewController.swift */,
 				CC97E9DF22A1D7C000D3B697 /* Tinder */,
 				CC97E9DE22A1D7C000D3B697 /* Products */,
 				90AE2E97C68296116637D873 /* Pods */,
@@ -81,6 +82,8 @@
 		CC97E9DF22A1D7C000D3B697 /* Tinder */ = {
 			isa = PBXGroup;
 			children = (
+				CCB4C23D22BA9ED800CE80E7 /* LoginViewController.swift */,
+				CCB4C23F22BC2B6F00CE80E7 /* UpdateViewController.swift */,
 				CC97E9E022A1D7C000D3B697 /* AppDelegate.swift */,
 				CC97E9E222A1D7C000D3B697 /* ViewController.swift */,
 				CC97E9E422A1D7C000D3B697 /* Main.storyboard */,
@@ -209,6 +212,7 @@
 				CCB4C23E22BA9ED800CE80E7 /* LoginViewController.swift in Sources */,
 				CC97E9E322A1D7C000D3B697 /* ViewController.swift in Sources */,
 				CC97E9E122A1D7C000D3B697 /* AppDelegate.swift in Sources */,
+				CCB4C24022BC2B6F00CE80E7 /* UpdateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
