@@ -18,32 +18,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJ3-0N-6aa">
-                                <rect key="frame" x="57" y="298" width="300" height="300"/>
-                                <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GI0-n6-dRd">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="bCI-re-qLV">
+                                        <barButtonItem key="leftBarButtonItem" title="Logout" id="rcl-7X-CKO">
+                                            <connections>
+                                                <action selector="logoutTapped:" destination="BYZ-38-t0r" id="fIf-Q7-K98"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="LtO-Qc-aT4">
+                                <rect key="frame" x="50" y="291" width="314" height="314"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="Crg-UQ-dOe"/>
-                                    <constraint firstAttribute="height" constant="300" id="OuY-gj-lIs"/>
+                                    <constraint firstAttribute="width" secondItem="LtO-Qc-aT4" secondAttribute="height" multiplier="1:1" id="ywM-p5-1yG"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="XJ3-0N-6aa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5wo-hU-Dag"/>
-                            <constraint firstItem="XJ3-0N-6aa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hWa-4y-SSS"/>
+                            <constraint firstItem="LtO-Qc-aT4" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7e8-RM-bQU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LtO-Qc-aT4" secondAttribute="trailing" constant="50" id="Ac5-cm-POR"/>
+                            <constraint firstItem="LtO-Qc-aT4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rrw-CS-cfM"/>
+                            <constraint firstItem="LtO-Qc-aT4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="VXL-Hg-A7o"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="swipeLabel" destination="XJ3-0N-6aa" id="Iea-SQ-Fb5"/>
+                        <outlet property="matchImageView" destination="LtO-Qc-aT4" id="qCM-fs-WMV"/>
+                        <segue destination="DUc-1F-Skg" kind="presentation" identifier="logoutSegue" id="4mC-kb-s6l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="161" y="112"/>
+            <point key="canvasLocation" x="2585.507246376812" y="141.96428571428569"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="wc5-2o-7e1">
@@ -134,6 +145,7 @@
                         <outlet property="passwordTextField" destination="XFh-NO-MS9" id="FU0-n7-bAe"/>
                         <outlet property="usernameTextField" destination="cvJ-Fc-rxR" id="8hU-Vn-wmI"/>
                         <segue destination="YqM-xH-nIR" kind="presentation" identifier="updateSegue" id="P85-HE-Ali"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="loginToSwipingSegue" id="dSV-Ef-XzA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h3d-8x-hul" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -254,14 +266,18 @@
                         <outlet property="interestedGenderSwitch" destination="vKP-96-cAx" id="rLY-9V-228"/>
                         <outlet property="profileImageView" destination="Khp-7U-jvq" id="PfQ-dc-gTw"/>
                         <outlet property="userGenderSwitch" destination="ZU9-Hr-jpT" id="GXv-k7-a26"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="updateToSwipeSegue" id="wyV-av-gPu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VFX-F9-KcV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1751" y="133"/>
+            <point key="canvasLocation" x="1767" y="621"/>
         </scene>
     </scenes>
     <resources>
         <image name="user" width="256" height="256"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="dSV-Ef-XzA"/>
+    </inferredMetricsTieBreakers>
 </document>

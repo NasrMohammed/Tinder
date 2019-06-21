@@ -40,7 +40,35 @@ class UpdateViewController: UIViewController, UINavigationControllerDelegate, UI
                 }
             }
         }
-
+       // createWomen()
+    }
+    
+    func createWomen() {
+        let imageUrls = ["https://vignette.wikia.nocookie.net/simpsons/images/9/95/Maude_Flanders.png/revision/latest?cb=20171127151808", "https://vignette.wikia.nocookie.net/simpsons/images/9/95/Maude_Flanders.png/revision/latest?cb=20171127151808", "https://vignette.wikia.nocookie.net/simpsons/images/9/95/Maude_Flanders.png/revision/latest?cb=20171127151808"]
+        var counter = 0
+        
+        for imageUrl in imageUrls {
+            counter += 1
+            if let url = URL(string: imageUrl) {
+                if let data = try? Data(contentsOf: url) {
+                    let imageFile = PFFileObject(name: "photo.png", data: data)
+                    
+                    let user = PFUser()
+                    user["photo"] = imageFile
+                    user.username = String(counter)
+                    user.password = "abc123"
+                    user["isFemale"] = true
+                    user["isInterestedInWomen"] = false
+                    
+                    user.signUpInBackground { (success, error) in
+                        if success {
+                            print("women user created!")
+                        }
+                    }
+                }
+            }
+        }
+        
     }
     
     @IBAction func updateImageTapped(_ sender: Any) {
@@ -70,6 +98,8 @@ class UpdateViewController: UIViewController, UINavigationControllerDelegate, UI
                         self.errorLabel.text = errorMessage
                     } else {
                         print("Update Successful")
+                        
+                        self.performSegue(withIdentifier: "updateToSwipeSegue", sender: nil)
                     }
                 })
             }

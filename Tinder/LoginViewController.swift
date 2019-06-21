@@ -68,7 +68,14 @@ class LoginViewController: UIViewController {
                             self.errorLabel.text = errorMessage
                         } else {
                             print("Log in Successful")
-                            self.performSegue(withIdentifier: "updateSegue", sender: nil)
+                            
+                            if  user!["isFemale"] != nil {
+                                self.performSegue(withIdentifier: "loginToSwipingSegue", sender: nil)
+                            } else {
+                                self.performSegue(withIdentifier: "updateSegue", sender: nil)
+                            }
+                            
+                            // self.performSegue(withIdentifier: "updateSegue", sender: nil)
 
                         }
                     })
@@ -81,7 +88,13 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if PFUser.current() != nil {
-            self.performSegue(withIdentifier: "updateSegue", sender: nil)
+            
+            if  PFUser.current()?["isFemale"] != nil {
+                self.performSegue(withIdentifier: "loginToSwipingSegue", sender: nil)
+            } else {
+                self.performSegue(withIdentifier: "updateSegue", sender: nil)
+            }
+
         }
     }
     @IBAction func changeLoginSiunupTapped(_ sender: Any) {
