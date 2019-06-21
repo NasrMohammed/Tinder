@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YqM-xH-nIR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DUc-1F-Skg">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -133,6 +133,7 @@
                         <outlet property="logInSignUpButton" destination="U1F-W8-xgl" id="W9j-tb-WOE"/>
                         <outlet property="passwordTextField" destination="XFh-NO-MS9" id="FU0-n7-bAe"/>
                         <outlet property="usernameTextField" destination="cvJ-Fc-rxR" id="8hU-Vn-wmI"/>
+                        <segue destination="YqM-xH-nIR" kind="presentation" identifier="updateSegue" id="P85-HE-Ali"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h3d-8x-hul" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -209,6 +210,12 @@
                                     <action selector="updateTapped:" destination="YqM-xH-nIR" eventType="touchUpInside" id="TaK-30-3lv"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yw-VN-VKC">
+                                <rect key="frame" x="186" y="752" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -216,6 +223,8 @@
                             <constraint firstItem="vKP-96-cAx" firstAttribute="centerX" secondItem="zbg-kU-IYj" secondAttribute="centerX" id="5em-JE-E3o"/>
                             <constraint firstItem="RXI-Ap-0M3" firstAttribute="centerY" secondItem="ZU9-Hr-jpT" secondAttribute="centerY" id="9dK-Kj-0Bc"/>
                             <constraint firstItem="RXI-Ap-0M3" firstAttribute="leading" secondItem="ZU9-Hr-jpT" secondAttribute="trailing" constant="19.5" id="EkA-N1-2Nr"/>
+                            <constraint firstItem="3yw-VN-VKC" firstAttribute="centerX" secondItem="zbg-kU-IYj" secondAttribute="centerX" id="IAN-En-ln2"/>
+                            <constraint firstItem="3yw-VN-VKC" firstAttribute="top" secondItem="hUs-kE-Yau" secondAttribute="bottom" constant="57.5" id="JTr-O4-IrT"/>
                             <constraint firstItem="hUs-kE-Yau" firstAttribute="top" secondItem="vKP-96-cAx" secondAttribute="bottom" constant="15" id="Ker-fc-Y3T"/>
                             <constraint firstItem="wJj-N7-ytr" firstAttribute="trailing" secondItem="mml-sR-t31" secondAttribute="trailing" constant="50" id="LBS-bv-06H"/>
                             <constraint firstItem="Khp-7U-jvq" firstAttribute="top" secondItem="wJj-N7-ytr" secondAttribute="top" constant="20" id="QoD-3O-hZx"/>
@@ -241,6 +250,7 @@
                         <viewLayoutGuide key="safeArea" id="wJj-N7-ytr"/>
                     </view>
                     <connections>
+                        <outlet property="errorLabel" destination="3yw-VN-VKC" id="KGw-Ps-GZx"/>
                         <outlet property="interestedGenderSwitch" destination="vKP-96-cAx" id="rLY-9V-228"/>
                         <outlet property="profileImageView" destination="Khp-7U-jvq" id="PfQ-dc-gTw"/>
                         <outlet property="userGenderSwitch" destination="ZU9-Hr-jpT" id="GXv-k7-a26"/>
@@ -248,7 +258,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VFX-F9-KcV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1747.826086956522" y="140.625"/>
+            <point key="canvasLocation" x="1751" y="133"/>
         </scene>
     </scenes>
     <resources>

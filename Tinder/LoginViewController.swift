@@ -47,6 +47,7 @@ class LoginViewController: UIViewController {
                     self.errorLabel.text = errorMessage
                 } else {
                     print("Sign up Successful")
+                    self.performSegue(withIdentifier: "updateSegue", sender: nil)
                 }
             })
             
@@ -67,6 +68,8 @@ class LoginViewController: UIViewController {
                             self.errorLabel.text = errorMessage
                         } else {
                             print("Log in Successful")
+                            self.performSegue(withIdentifier: "updateSegue", sender: nil)
+
                         }
                     })
                 }
@@ -76,6 +79,11 @@ class LoginViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if PFUser.current() != nil {
+            self.performSegue(withIdentifier: "updateSegue", sender: nil)
+        }
+    }
     @IBAction func changeLoginSiunupTapped(_ sender: Any) {
         if signUpMode {
             logInSignUpButton.setTitle("Log In", for: .normal)

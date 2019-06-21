@@ -10,7 +10,8 @@ import UIKit
 import Parse
 
 class UpdateViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
-
+    @IBOutlet weak var errorLabel: UILabel!
+    
     @IBOutlet weak var profileImageView: UIImageView!
     
     @IBOutlet weak var userGenderSwitch: UISwitch!
@@ -21,7 +22,25 @@ class UpdateViewController: UIViewController, UINavigationControllerDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        errorLabel.isHidden = true
+        
+        if let isFemale = PFUser.current()?["isFemale"] as? Bool {
+            userGenderSwitch.setOn(isFemale, animated: false)
+        }
+        if let isInterestedInWomen = PFUser.current()?["isInterestedInWomen"] as? Bool {
+            interestedGenderSwitch.setOn(isInterestedInWomen, animated: false)
+        }
+        
+        if let photo = PFUser.current()?["photo"] as? PFFileObject {
+            photo.getDataInBackground { (data, error) in
+                if let imageData = data {
+                    if let image = UIImage(data: imageData) {
+                        self.profileImageView.image = image
+                    }
+                }
+            }
+        }
+
     }
     
     @IBAction func updateImageTapped(_ sender: Any) {
@@ -35,6 +54,26 @@ class UpdateViewController: UIViewController, UINavigationControllerDelegate, UI
         PFUser.current()?["isFemale"] = userGenderSwitch.isOn
         PFUser.current()?["isInterestedInWomen"] = interestedGenderSwitch.isOn
         
+        if let image = profileImageView.image {
+            if let imageData = image.pngData() {
+                PFUser.current()?["photo"] = PFFileObject(name: "profile.png", data: imageData)
+                PFUser.current()?.saveInBackground(block: { (success, error) in
+                    if error != nil {
+                        var errorMessage = "Update Failed - Try Again"
+                        
+                        if let newError = error as NSError? {
+                            if let detailError = newError.userInfo["error"] as? String {
+                                errorMessage = detailError
+                            }
+                        }
+                        self.errorLabel.isHidden = false
+                        self.errorLabel.text = errorMessage
+                    } else {
+                        print("Update Successful")
+                    }
+                })
+            }
+        }
        // UIImage.pngData(profileImageView.image)
     }
     
