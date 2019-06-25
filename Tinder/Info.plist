@@ -58,5 +58,7 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We want you to know people in your area.</string>
 </dict>
 </plist>

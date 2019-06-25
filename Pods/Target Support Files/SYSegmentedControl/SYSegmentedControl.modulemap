@@ -1,0 +1,6 @@
+framework module SYSegmentedControl {
+  umbrella header "SYSegmentedControl-umbrella.h"
+
+  export *
+  module * { export * }
+}

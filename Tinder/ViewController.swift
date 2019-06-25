@@ -8,9 +8,10 @@
 
 import UIKit
 import Parse
+import SYSegmentedControl
 
 class ViewController: UIViewController {
-
+    
     var displayUserID = ""
     @IBOutlet weak var matchImageView: UIImageView!
     
@@ -18,24 +19,31 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-    
+        
         let gesture = UIPanGestureRecognizer(target: self, action: #selector(wasDragged(gesturerecognizer:)))
         matchImageView.addGestureRecognizer(gesture)
         
         updateImage()
+        
+        PFGeoPoint.geoPointForCurrentLocation { (geoPoint, error) in
+            if let point = geoPoint {
+                PFUser.current()?["location"] = point
+                PFUser.current()?.saveInBackground()
+            }
+        }
     }
-
+    
     @IBAction func logoutTapped(_ sender: Any) {
         PFUser.logOut()
         performSegue(withIdentifier: "logoutSegue", sender: nil)
     }
     
     @objc func wasDragged(gesturerecognizer: UIPanGestureRecognizer) {
-       let labelPoint = gesturerecognizer.translation(in: view)
+        let labelPoint = gesturerecognizer.translation(in: view)
         matchImageView.center = CGPoint(x: view.bounds.width/2 + labelPoint.x, y: view.bounds.height/2 + labelPoint.y)
         
         let xFromCenter = view.bounds.width / 2 - matchImageView.center.x
-
+        
         var rotation = CGAffineTransform(rotationAngle: xFromCenter / 200)
         
         let scale =  min(100 / abs(xFromCenter), 1)
@@ -73,16 +81,16 @@ class ViewController: UIViewController {
             scaledAndRotated = rotation.scaledBy(x: 1, y: 1)
             
             matchImageView.transform = scaledAndRotated
-
+            
             
             matchImageView.center = CGPoint(x: view.bounds.width / 2, y: view.bounds.height / 2)
             
             
         }
     }
-
-        func updateImage() {
-            if let query = PFUser.query() {
+    
+    func updateImage() {
+        if let query = PFUser.query() {
             
             if let isInterestedInWomen = PFUser.current()?["isInterestedInWomen"] {
                 query.whereKey("isFemale", equalTo: isInterestedInWomen)
@@ -93,19 +101,20 @@ class ViewController: UIViewController {
             }
             
             var ignoredUsers : [String] = []
-                
-                if let acceptedUsers =  PFUser.current()?["accedpted"] as? [String] {
-                    ignoredUsers += acceptedUsers
-                }
-                
-                if let rejectedUsers =  PFUser.current()?["rejected"] as? [String] {
-                    ignoredUsers += rejectedUsers
-                }
-                
-            query.whereKey("objectId", notContainedIn: ignoredUsers)
-                
             
-                
+            if let acceptedUsers =  PFUser.current()?["accedpted"] as? [String] {
+                ignoredUsers += acceptedUsers
+            }
+            
+            if let rejectedUsers =  PFUser.current()?["rejected"] as? [String] {
+                ignoredUsers += rejectedUsers
+            }
+            
+            query.whereKey("objectId", notContainedIn: ignoredUsers)
+            
+            if let geoPoint = PFUser.current()?["location"] as? PFGeoPoint {
+                query.whereKey("location", withinGeoBoxFromSouthwest: PFGeoPoint(latitude: geoPoint.latitude - 1, longitude: geoPoint.longitude - 1), toNortheast: PFGeoPoint(latitude: geoPoint.latitude + 1, longitude: geoPoint.longitude + 1))
+            }
             query.limit = 1
             
             query.findObjectsInBackground { (objects, error) in

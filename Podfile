@@ -7,4 +7,7 @@ target 'Tinder' do
 
   # Pods for Tinder
 pod 'Parse'
+pod 'SYSegmentedControl', '~> 1.1'
 end
+
+

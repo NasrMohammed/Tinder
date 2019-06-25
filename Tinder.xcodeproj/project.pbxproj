@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2BC8CD2966DABD4196D36BDA /* Pods_Tinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35C4C0131C1216D0D9F8585 /* Pods_Tinder.framework */; };
+		CC625B2322C17BC300C88328 /* MatchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC625B2222C17BC300C88328 /* MatchesViewController.swift */; };
+		CC625B2522C2786400C88328 /* MatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC625B2422C2786400C88328 /* MatchTableViewCell.swift */; };
 		CC97E9E122A1D7C000D3B697 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97E9E022A1D7C000D3B697 /* AppDelegate.swift */; };
 		CC97E9E322A1D7C000D3B697 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC97E9E222A1D7C000D3B697 /* ViewController.swift */; };
 		CC97E9E622A1D7C000D3B697 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC97E9E422A1D7C000D3B697 /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 
 /* Begin PBXFileReference section */
 		4464303BC4742C28215D8225 /* Pods-Tinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tinder.release.xcconfig"; path = "Target Support Files/Pods-Tinder/Pods-Tinder.release.xcconfig"; sourceTree = "<group>"; };
+		CC625B2222C17BC300C88328 /* MatchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesViewController.swift; sourceTree = "<group>"; };
+		CC625B2422C2786400C88328 /* MatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableViewCell.swift; sourceTree = "<group>"; };
 		CC97E9DD22A1D7C000D3B697 /* Tinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC97E9E022A1D7C000D3B697 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC97E9E222A1D7C000D3B697 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 				CC97E9E022A1D7C000D3B697 /* AppDelegate.swift */,
 				CC97E9E222A1D7C000D3B697 /* ViewController.swift */,
 				CC97E9E422A1D7C000D3B697 /* Main.storyboard */,
+				CC625B2422C2786400C88328 /* MatchTableViewCell.swift */,
+				CC625B2222C17BC300C88328 /* MatchesViewController.swift */,
 				CC97E9E722A1D7C200D3B697 /* Assets.xcassets */,
 				CC97E9E922A1D7C200D3B697 /* LaunchScreen.storyboard */,
 				CC97E9EC22A1D7C200D3B697 /* Info.plist */,
@@ -210,7 +216,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCB4C23E22BA9ED800CE80E7 /* LoginViewController.swift in Sources */,
+				CC625B2522C2786400C88328 /* MatchTableViewCell.swift in Sources */,
 				CC97E9E322A1D7C000D3B697 /* ViewController.swift in Sources */,
+				CC625B2322C17BC300C88328 /* MatchesViewController.swift in Sources */,
 				CC97E9E122A1D7C000D3B697 /* AppDelegate.swift in Sources */,
 				CCB4C24022BC2B6F00CE80E7 /* UpdateViewController.swift in Sources */,
 			);
